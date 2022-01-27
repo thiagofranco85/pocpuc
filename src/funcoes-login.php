@@ -11,13 +11,13 @@ if( $_POST && $_POST['acao'] = 'autentica' ){
  
     session_start();
     if( $usuario ){
-        unset($_SESSION['erro_login']);
+        //unset($_SESSION['erro_login']);
         $_SESSION['usuario'] = $usuario;
         header('Location: ../painel.php');
     }else{
-        $_SESSION['erro_login'] = "Email e/ou senha inválidos!";
+        //$_SESSION['erro_login'] = "Email e/ou senha inválidos!";
         unset($_SESSION['usuario']);
-        header('Location: ../login.php');
+        header('Location: ../login.php?erro_login=1');
         exit;
     }
 

@@ -22,20 +22,14 @@ if( $_POST && $_POST['acao'] == 'salvar'){
     $id = $id == "" ? null : $id;    
 
     if( $id == null && ($senha != $confirmarSenha) ){       
-        session_start();
-        $_SESSION['erro_cadastrar_usuario'] = "As senhas não conferem!";
-        header('Location: ../cadastrar-usuario.php');
+        
+        header('Location: ../cadastrar-usuario.php?erro_senha=1');
         exit;
     }elseif( $senha == null || $confirmarSenha == ''){
-        session_start();
-        $_SESSION['erro_cadastrar_usuario'] = "As senhas não podem ser nulas!";
-        header("Location: ../cadastrar-usuario.php?id=$id");
+       
+        header("Location: ../cadastrar-usuario.php?id=$id&erro_senha=2");
         exit;
-    }else{
-        if( isset($_SESSION['erro_cadastrar_usuario'])){
-            unset($_SESSION['erro_cadastrar_usuario']);
-        }        
-    }
+    } 
     
     $result = salvar( $id, $nome, $email, $senha, $status, $tipo );
 

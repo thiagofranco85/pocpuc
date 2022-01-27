@@ -25,10 +25,10 @@
 
                                         <?php 
                                         session_start();
-                                        if( $_SESSION['erro_login']): 
+                                        if(  isset($_GET['erro_login']) &&  $_GET['erro_login'] == 1 ): 
                                         ?>
                                         <div class="alert alert-danger">
-                                            <?php echo $_SESSION['erro_login']; ?>
+                                            <?php echo "Email e/ou senha inválidos!"; ?>
                                         </div>
                                         <?php endif; ?>
                                     

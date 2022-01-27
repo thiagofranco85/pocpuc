@@ -4,8 +4,10 @@ $autentica_tipo_usuario = ['Administrador'];
 
 require 'header.php'; 
 require_once __DIR__ . '/src/funcoes-administrador.php';
+
+$erro_senha = isset($_GET['erro_senha']) &&  $_GET['erro_senha'] == 1 ? "As senhas não conferem!": 'As senhas não podem ser nulas!';
  
-$erro_cadastrar_usuario = isset($_SESSION['erro_cadastrar_usuario']) ? $_SESSION['erro_cadastrar_usuario'] : '';
+$erro_cadastrar_usuario = isset($_GET['erro_senha'])  ? $erro_senha : '';
  
 $arrTipoUsuario = ['Analista', 'Supervisor', 'Gestor', 'Administrador'];
 $arrStatus = ['Ativo', 'Inativo']; 

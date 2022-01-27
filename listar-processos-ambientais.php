@@ -55,6 +55,7 @@ $processos = select();
                             <td><?php echo $item['status'] ?></td> 
                             <td><?php echo date("d/m/Y", strtotime($item['dataInicio'])) ?></td>
                             <td><?php echo date("d/m/Y", strtotime($item['dataValidade'])) ?></td>
+                            <td><?php echo number_format($item['valor'], 2, ',', '.') ?></td>
                             <td>
                                 <a class="btn btn-primary btn-sm" href="cadastrar-processo-ambiental.php?id=<?php echo $item['id'] ?>">
                                 <i class="fa fa-edit"></i> Editar</a>
